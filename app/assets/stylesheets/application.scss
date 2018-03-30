@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+body {
+  
+    background: #e6eaed;      
+}
+
+
+.btn-warning
+{
+color: #666965;
+background-color: #f0ad4e;
+border-color: #eea236;
+margin-left: 350px;
+border-radius: 30px;
+}
+
+
+
+
+.nav.navbar-nav li a {
+    color: white;
+}
+
+
+
+.fa-twitter {
+    color: #4099FF;
+}
+
+.fa-facebook {
+    color: #3B5998;
+}
+
+.fa-youtube-play {
+    color: #e52d27;
+}
