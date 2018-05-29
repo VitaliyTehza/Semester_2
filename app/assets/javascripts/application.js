@@ -11,7 +11,7 @@
 // about supported directives.
 //
 
-
+//= require tinymce-jquery
 //= require jquery
 //= require bootstrap-sprockets
 //= require rails-ujs

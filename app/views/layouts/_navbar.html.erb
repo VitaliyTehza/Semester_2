@@ -26,9 +26,9 @@
   </div>
 </form> 
 
-
+<%= link_to new_product_path do %>
 <button  class="btn btn-warning navbar-btn">+ Dodaty oholoshennya</button>
-
+<%end%>
 
   <ul class="nav navbar-nav navbar-right">
     <% if current_user.nil? %>
