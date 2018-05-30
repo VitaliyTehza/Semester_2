@@ -4,18 +4,17 @@
   
 }
 </style>
-<div class="container">
-<nav class="navbar navbar-light" style="background-color: #228B22">
+<nav class="navbar navbar-light" style="background-color: #000000">
+
   <div class="container-fluid">
 
 
 
     <ul class="nav navbar-nav">
-
       <li class="active"><%= link_to "Animal_Sale", root_path, class: "navbar-brand"%></li>   
     
 
-                     <li class="nav-item dropdown">
+    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="/categories/:id " id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Categories
                         </a>
@@ -25,9 +24,13 @@
                           <li><%=link_to categories_path(3) do %>Category2 <%end%></li>
 
                     </ul>
-    </li>
+
+
    </ul>
 
+
+
+ 
 
   <div class="input-group">
     
@@ -39,12 +42,23 @@
   </div>
 </form> 
 
+
+
+
 <%= link_to new_product_path do %>
 <button  class="btn btn-warning navbar-btn">+ Dodaty oholoshennya</button>
 <%end%>
 
+
+
   <ul class="nav navbar-nav navbar-right">
     <% if current_user.nil? %>
+    <li>
+   
+    <%= link_to new_user_registration_path do %>
+      <i class="glyphicon glyphicon-user"></i> Sing up
+      <%end%>
+      </li>
         <li>
     <%= link_to user_session_path do %>
       <i class="glyphicon glyphicon-log-in"></i> Login
