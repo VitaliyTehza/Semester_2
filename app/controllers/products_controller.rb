@@ -1,36 +1,42 @@
 class ProductsController < ApplicationController
-before_action :authenticate_user!, except: [:show]
+    before_action :authenticate_user!, except: [:show]
+    before_action :set_product, only:[:show]
 
-def index
+
+
+  def index
     #@products = Product.all.order(created_at: :DESC)
-    @products = Product.all
+  end
+
+  def new
+    @product = Product.new
+  end
+
+
+  def create
+    params[:product][:category_id]=params[:category_id]
+    @product = current_user.products.build(product_params)
+    if @product.save
+      redirect_to root_path
+    else render 'new'
+    end 
   end
 
   def show
-    @product = Product.find(params[:id])
-    @products =Product.all.order(created_at: :DESC)
+    #@products =Product.all.order(created_at: :DESC)
+  end  
+
+  def category
+     pp @products = Product.where(category_id: params[:id])
   end
-  
-  def new
-    @categories = Category.all
-    @product = Product.new
-  end
-  
-  def create
-    @product = current_user.products.build(products_params)
-    if @product.save
-      redirect_to root_path
-    end   
-  end
-  
-  def edit
-  end
-  
-  def update
-  end
+
   
 private
-  def products_params
+  def product_params
     params.require(:product).permit(:user_id, :name, :description, :price, :count, {photos: []})
+  end
+
+  def set_product
+    @product=Product.find(params[:id])
   end
 end

@@ -1,10 +1,9 @@
-<p>Select category of product</p>
-<% @categories.each do |category| %>
-<div>
-    <%= check_box_tag 'category_ids[]', category.id %>
-    <%= f.label category.name %>
-</div>
-<% end %>
+
+  <%= form_for @product do |f| %>
+
+<p><%= f.label :category %></p>
+<%= select_tag 'category_id', options_from_collection_for_select(Category.all, 'id', 'name')%>
+
 
   <div class="form-group">
    <%= f.label :name %><br />
@@ -34,3 +33,6 @@
   <div class="form-group text-center m-t-30">
     <%= f.submit "Save", class: "btn btn-info" %>
   </div>
+
+  <%end%>
+ 

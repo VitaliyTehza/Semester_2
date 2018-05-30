@@ -1,4 +1,4 @@
-   <div class="col-sm-6 col-md-4 col-lg-3 mt-4">     
+ <!--  <div class="col-sm-6 col-md-4 col-lg-3 mt-4">     
     <div class="card" style="width: 25rem;">
       <div class="card-img-top"><%product.photos do |photo|%>
       	<%= link_to product_path(product.id) do%><%=image_tag photo ,weight: 30, height: 30%><%end%><%end%>
@@ -8,4 +8,11 @@
     </div>
    </div>
  
-  </div>
+  </div>-->
+
+<div>
+  <h3><%=link_to product.name, product_path(product.id) %></h3>
+  <small>
+        <time><%= product.created_at.to_date.strftime("%d %B, %Y") %></time>
+  </small>
+</div>
