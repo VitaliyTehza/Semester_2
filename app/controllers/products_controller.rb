@@ -1,7 +1,14 @@
 class ProductsController < ApplicationController
 before_action :authenticate_user!, except: [:show]
 
+def index
+    #@products = Product.all.order(created_at: :DESC)
+    @products = Product.all
+  end
+
   def show
+    @product = Product.find(params[:id])
+    @products =Product.all.order(created_at: :DESC)
   end
   
   def new
@@ -10,10 +17,8 @@ before_action :authenticate_user!, except: [:show]
   end
   
   def create
-    @categories = Category.find(params[:category_ids])
     @product = current_user.products.build(products_params)
     if @product.save
-      @product.categories « @categories
       redirect_to root_path
     end   
   end

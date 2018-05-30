@@ -32,12 +32,6 @@
 
   <ul class="nav navbar-nav navbar-right">
     <% if current_user.nil? %>
-    <li>
-   
-    <%= link_to new_user_registration_path do %>
-      <i class="glyphicon glyphicon-user"></i> Sing up
-      <%end%>
-      </li>
         <li>
     <%= link_to user_session_path do %>
       <i class="glyphicon glyphicon-log-in"></i> Login
