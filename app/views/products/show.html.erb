@@ -1,0 +1,17 @@
+     <center>
+      <%@product.photos do |photo|%>
+      <% if product.photos == [] %>
+                <%= image_tag("default-img.png", height: '200', width: '200') %>
+              <% else %>
+
+                  <%= image_tag(product.photos.first.url, height: '200', width: '200') %>
+
+              <% end %>
+      <%end%>
+      </center>
+      <center><h1><%= @product.name %></h1></center>
+      <p><%= sanitize @product.description %></p>
+
+ 
+    
+  

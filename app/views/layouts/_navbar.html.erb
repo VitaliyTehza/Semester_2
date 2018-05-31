@@ -3,18 +3,37 @@
   text-decoration:none;
   
 }
+
 </style>
-<div class="container">
-<nav class="navbar navbar-light" style="background-color: #228B22">
+<nav class="navbar navbar-light" style="background-color: #000000">
+
   <div class="container-fluid">
 
 
-
-    <ul class="nav navbar-nav">
+     <ul class="nav navbar-nav">
       <li class="active"><%= link_to "Animal_Sale", root_path, class: "navbar-brand"%></li>   
     
+
+
+    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle" href="/categories/:id " id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categories <span class="caret"></span>
+                        </a>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                          <li><%=link_to categories_path(1) do%>Dog<%end%></li>
+                          <li><%=link_to categories_path(2) do %>Cats<%end%></li>
+                          <li><%=link_to categories_path(3) do %>Birds<%end%></li>
+
+                    </ul>
+
+
    </ul>
 
+
+
+
+ 
 
   <div class="input-group">
     
@@ -26,9 +45,14 @@
   </div>
 </form> 
 
+
+
+
 <%= link_to new_product_path do %>
 <button  class="btn btn-warning navbar-btn">+ Dodaty oholoshennya</button>
 <%end%>
+
+
 
   <ul class="nav navbar-nav navbar-right">
     <% if current_user.nil? %>

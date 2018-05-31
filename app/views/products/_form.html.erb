@@ -1,10 +1,9 @@
-<p>Select category of product</p>
-<% @categories.each do |category| %>
-<div>
-    <%= check_box_tag 'category_ids[]', category.id %>
-    <%= f.label category.name %>
-</div>
-<% end %>
+<center>
+  <%= form_for @product do |f| %>
+
+<p><%= f.label :category %></p>
+<%= select_tag 'category_id', options_from_collection_for_select(Category.all, 'id', 'name')%>
+
 
   <div class="form-group">
    <%= f.label :name %><br />
@@ -24,13 +23,16 @@
    <%= f.label :count %><br />
    <%= f.text_field :count %>    
   </div>
-  
-   <div class="form-group">
+
+   <div class="form-group" style="margin-left: 418px; margin-right: 414px";>
    <%= f.label :description %><br />
    <%= f.text_area :description, :class => "tinymce", :rows => 10, :cols => 30 %>
-   <%= tinymce %>    
+   <%= tinymce %> 
+
   </div>
-  
   <div class="form-group text-center m-t-30">
     <%= f.submit "Save", class: "btn btn-info" %>
   </div>
+
+  <%end%>
+ </center>

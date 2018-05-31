@@ -1,0 +1,14 @@
+<center>
+<section id="products">
+   
+    <h3 style="font-weight: 900; "><%= t("product") %> |<i class="link"> <%= link_to t("all_products"), products_path %></i></h3></div>
+<hr>
+    <% @products.each do |product| %>
+        
+        <%= render 'products/product', product:product %>
+    <hr>
+
+    <%end%>
+    </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+  </section>
+  </center>
