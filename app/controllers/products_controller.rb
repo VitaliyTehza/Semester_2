@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
 
   def index
-    #@products = Product.all.order(created_at: :DESC)
+    @products = Product.all.order(created_at: :DESC)
   end
 
   def new
@@ -14,8 +14,9 @@ class ProductsController < ApplicationController
 
 
   def create
-    params[:product][:category_id]=params[:category_id]
-    @product = current_user.products.build(product_params)
+    pp params[:product][:category_id]=params[:product][:category]
+    params[:product][:user_id]=current_user.id
+    @product = Product.create(product_params)
     if @product.save
       redirect_to root_path
     else render 'new'
@@ -33,7 +34,7 @@ class ProductsController < ApplicationController
   
 private
   def product_params
-    params.require(:product).permit(:user_id, :name, :description, :price, :count, {photos: []})
+    params.require(:product).permit(:user_id,:category_id, :name, :description, :price, :count, {photos: []})
   end
 
   def set_product
